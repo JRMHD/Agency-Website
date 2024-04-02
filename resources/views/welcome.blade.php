@@ -27,7 +27,7 @@
                     </svg>
                 </div>
                 <ul class="mobile-navbar__links">
-                    <li><a href="index.html">Home</a></li>
+                    <li><a href="{{ url('/') }}">Home</a></li>
                     <li>
                         <a href="{{ url('about') }}"><fontsninja-text id="fontsninja-text-12"
                                 class="fontsninja-family-1933">About</fontsninja-text></a>
@@ -37,10 +37,23 @@
                                 class="fontsninja-family-1933">Contact</fontsninja-text></a>
                     </li>
                 </ul>
+
+
                 <div class="mobile-navbar__links">
-                    <a class="mobile-navbar__links-sign-in" href="#">Sign-In</a>
-                    <a class="mobile-navbar__links-register" href="#">Register</a>
+                    @auth
+                        <!-- Show indicator for logged-in user -->
+                        <a href="{{ route('dashboard') }}">
+                            <!-- SVG icon -->
+                            <img src="images\userproffile.png" alt="User Profile" width="30" height="30">
+                        </a>
+                    @else
+                        <!-- Show sign-in and register links for non-logged-in user -->
+                        <a class="mobile-navbar__links-sign-in" href="{{ route('login') }}">Sign-In</a>
+                        <a class="mobile-navbar__links-register" href="{{ route('register') }}">Register</a>
+                    @endauth
                 </div>
+
+
             </div>
             <div class="navbar">
                 <div class="navbar-img">
@@ -52,9 +65,20 @@
                     <li><a href="{{ url('contact') }}">Contact</a></li>
                 </ul>
                 <div class="navbar-buttons">
-                    <a class="navbar-buttons-sign-in" href="#">Sign-In</a>
-                    <a class="navbar-buttons-register" href="#">Register</a>
+                    @auth
+                        <!-- Show indicator for logged-in user -->
+                        <a href="{{ route('dashboard') }}">
+                            <!-- SVG icon -->
+                            <img src="images\userproffile.png" alt="User Profile" width="30" height="30">
+                        </a>
+                    @else
+                        <!-- Show sign-in and register links for non-logged-in user -->
+                        <a class="navbar-buttons-sign-in" href="{{ route('login') }}">Sign-In</a>
+                        <a class="navbar-buttons-register" href="{{ route('register') }}">Register</a>
+                    @endauth
                 </div>
+
+
                 <div class="mobile-hamb">
                     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -84,9 +108,10 @@
                             we've got you covered!
                         </p>
                         <div class="hero-content-text-btns">
-                            <a class="hero-content-text-btns-book-ride" href="{{ url('contact') }}">Contact Us &nbsp;<i
-                                    class=""></i></a>
-                            <a class="hero-content-text-btns-learn-more" href="{{ url('about') }}">Discover More &nbsp;
+                            <a class="hero-content-text-btns-book-ride" href="{{ url('contact') }}">Contact Us
+                                &nbsp;<i class=""></i></a>
+                            <a class="hero-content-text-btns-learn-more" href="{{ url('about') }}">Discover More
+                                &nbsp;
                                 <i class="fa-solid fa-angle-right"></i></a>
                         </div>
                     </div>

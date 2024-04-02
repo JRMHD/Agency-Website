@@ -41,9 +41,16 @@
                         Agency Services.
                     </p>
                 </li>
-                <li><input type="text" placeholder="First Name" /></li>
-                <li><input type="email" placeholder="Enter Email Address" /></li>
-                <li><button class="submit-email">Subscribe</button></li>
+                <form action="{{ route('subscribe.store') }}" method="POST">
+                    @csrf
+                    <li><input type="text" name="first_name" placeholder="First Name" required /></li>
+                    <li><input type="email" name="email" placeholder="Enter Email Address" required /></li>
+                    <li><button type="submit" class="submit-email">Subscribe</button></li>
+                    @if (session('success'))
+                        <div class="alert-success" style="color: green;">{{ session('success') }}</div>
+                    @endif
+                </form>
+
             </ul>
         </div>
     </div>

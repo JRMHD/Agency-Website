@@ -61,7 +61,7 @@
             <div class="container">
                 <div class="hero-pages__text">
                     <h3>Contact</h3>
-                    <p><a href="../index.html">Home</a> / Contact</p>
+                    <p><a href="{{ url('/') }}">Home</a> / Contact</p>
                 </div>
             </div>
         </section>
@@ -91,16 +91,17 @@
                             stroke-linecap="round" stroke-linejoin="round" class="tabler-icon tabler-icon-location">
                             <path d="M21 3l-6.5 18a.55 .55 0 0 1 -1 0l-3.5 -7l-7 -3.5a.55 .55 0 0 1 0 -1l18 -6.5">
                             </path>
-                        </svg>&nbsp; Nairobi, Kenya</a>
+                        </svg>&nbsp; Kisii, Kenya</a>
                 </div>
                 <div class="contact-div__form">
-                    <form>
+                    <form action="{{ route('submit-form') }}" method="POST">
+                        @csrf
                         <label>Full Name <b>*</b></label>
-                        <input type="text" placeholder="E.g: &quot;Joe Shmoe&quot;">
+                        <input type="text" name="full_name" placeholder="E.g: &quot;Joe Shmoe&quot;">
                         <label class="mail">Email <b>*</b></label>
-                        <input type="email" placeholder="youremail@example.com">
+                        <input type="email" name="email" placeholder="youremail@example.com">
                         <label class="fone">Tell us about it <b>*</b></label>
-                        <textarea placeholder="Write Here.."></textarea>
+                        <textarea name="message" placeholder="Write Here.."></textarea>
                         <button type="submit">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                 viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -112,7 +113,11 @@
                                 <path d="M15 13l6 6"></path>
                             </svg>&nbsp; Send Message
                         </button>
+                        @if (session('success'))
+                            <div class="alert-success" style="color: green;">{{ session('success') }}</div>
+                        @endif
                     </form>
+
                 </div>
             </div>
         </div>

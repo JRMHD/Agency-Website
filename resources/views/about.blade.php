@@ -56,7 +56,7 @@
             <div class="container">
                 <div class="hero-pages__text">
                     <h3>About</h3>
-                    <p><a href="../index.html">Home</a> / About</p>
+                    <p><a href="{{ url('/') }}">Home</a> / About</p>
                 </div>
             </div>
         </section>
