@@ -12,9 +12,45 @@
     <link rel="stylesheet" href="css/reset.css" />
     <link rel="stylesheet" href="css/scrollbar.css" />
     <link rel="stylesheet" href="css/querryHome.css" />
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        #loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+
+        #loading-screen img {
+            animation: rotate 2s infinite linear;
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
 </head>
 
 <body>
+
+
     <header style="margin-bottom: 0px">
         <nav>
             <div class="mobile-navbar">
@@ -183,29 +219,41 @@
                         <h2>Convenient & Reliable Agency Solutions</h2>
                     </div>
                     <div class="plan-container-boxes">
-                        <div class="plan-container-boxes-box">
-                            <img src="images\logbooktransfer.jpg" alt="Logbook Transfer" />
+                        <div class="plan-container-boxes-box" onclick="location.href='logbooktransfer'"
+                            onmouseover="this.style.backgroundColor='#f0f0f0';"
+                            onmouseout="this.style.backgroundColor='transparent';">
+
+                            <img src="images/logbooktransfer.jpg" alt="Logbook Transfer" />
                             <h3>Logbook Transfer</h3>
-                            <p>
-                                Efficient and hassle-free logbook transfer services tailored
-                                to your needs.
-                            </p>
+                            <p>Efficient and hassle-free logbook transfer services tailored to your needs.</p>
                         </div>
-                        <div class="plan-container-boxes-box">
-                            <img src="images\uberservices.jpg" alt="Uber Services" />
+                        <div class="plan-container-boxes-box" onclick="location.href='UberServices'"
+                            onmouseover="this.style.backgroundColor='#f0f0f0';"
+                            onmouseout="this.style.backgroundColor='transparent';">
+                            <img src="images/uberservices.jpg" alt="Uber Services" />
                             <h3>Uber Services</h3>
-                            <p>
-                                Seamless Uber services to get you to your destination with
-                                ease.
-                            </p>
+                            <p>Seamless Uber services to get you to your destination with ease.</p>
                         </div>
-                        <div class="plan-container-boxes-box">
-                            <img src="images\real estate.jpg" alt="Real Estate" />
+                        <div class="plan-container-boxes-box" onclick="location.href='RealEstate'"
+                            onmouseover="this.style.backgroundColor='#f0f0f0';"
+                            onmouseout="this.style.backgroundColor='transparent';">
+                            <img src="images/real estate.jpg" alt="Real Estate" />
                             <h3>Real Estate</h3>
-                            <p>
-                                Explore our comprehensive real estate solutions for your
-                                housing needs.
-                            </p>
+                            <p>Explore our comprehensive real estate solutions for your housing needs.</p>
+                        </div>
+                        <div class="plan-container-boxes-box" onclick="location.href='CommercialVehicleHire'"
+                            onmouseover="this.style.backgroundColor='#f0f0f0';"
+                            onmouseout="this.style.backgroundColor='transparent';">
+                            <img src="images\commercial vehicle.jpg" alt="Commercial Vehicle Hire" />
+                            <h3>Commercial Vehicle Hire</h3>
+                            <p>Reliable commercial vehicle hire services for your business needs.</p>
+                        </div>
+                        <div class="plan-container-boxes-box" onclick="location.href='SecondHandVehicleDeals'"
+                            onmouseover="this.style.backgroundColor='#f0f0f0';"
+                            onmouseout="this.style.backgroundColor='transparent';">
+                            <img src="images\secondhand.jpg" alt="Second Hand Vehicle Deals" />
+                            <h3>Second Hand Vehicle Deals</h3>
+                            <p>Explore our wide range of second-hand vehicle deals at affordable prices.</p>
                         </div>
                     </div>
                 </div>
@@ -272,6 +320,21 @@
     </main>
     <script src="js/main.js"></script>
     <script src="https://kit.fontawesome.com/ca4923168d.js" crossorigin="anonymous"></script>
+
+    <div id="loading-screen">
+        <img src="images/logofavicon.png" alt="Loading...">
+    </div>
+
+    <script>
+        window.addEventListener('load', function() {
+            var loadingScreen = document.getElementById('loading-screen');
+            if (loadingScreen) {
+                setTimeout(function() {
+                    loadingScreen.style.display = 'none';
+                }, 3000);
+            }
+        });
+    </script>
 </body>
 
 </html>

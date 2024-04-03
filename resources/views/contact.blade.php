@@ -10,6 +10,39 @@
     <link rel="stylesheet" href="../css/scrollbar.css">
     <link rel="stylesheet" href="../css/contact.css">
     <link rel="stylesheet" href="../css/querryContact.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        #loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+
+        #loading-screen img {
+            animation: rotate 2s infinite linear;
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -146,6 +179,20 @@
     @include('footer')
     <script src="https://kit.fontawesome.com/ca4923168d.js" crossorigin="anonymous"></script>
     <script src="../js/main.js"></script>
+    <div id="loading-screen">
+        <img src="images/logofavicon.png" alt="Loading...">
+    </div>
+
+    <script>
+        window.addEventListener('load', function() {
+            var loadingScreen = document.getElementById('loading-screen');
+            if (loadingScreen) {
+                setTimeout(function() {
+                    loadingScreen.style.display = 'none';
+                }, 3000);
+            }
+        });
+    </script>
 </body>
 
 </html>

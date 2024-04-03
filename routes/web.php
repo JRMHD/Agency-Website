@@ -46,7 +46,21 @@ Route::get('contact', function () {
 Route::get('/', function () {
     return view('welcome');
 })->name('home');
-
+Route::get('logbooktransfer', function () {
+    return view('logbooktransfer');
+});
+Route::get('UberServices', function () {
+    return view('UberServices');
+});
+Route::get('RealEstate', function () {
+    return view('RealEstate');
+});
+Route::get('CommercialVehicleHire', function () {
+    return view('CommercialVehicleHire');
+});
+Route::get('SecondHandVehicleDeals', function () {
+    return view('SecondHandVehicleDeals');
+});
 
 
 Route::post('/submit-form', [FormController::class, 'store'])->name('submit-form');
