@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FormController;
 use App\Http\Controllers\SubscriptionController;
+use App\Http\Controllers\LogbookController;
 
 /*
 |--------------------------------------------------------------------------
@@ -65,3 +66,13 @@ Route::get('SecondHandVehicleDeals', function () {
 
 Route::post('/submit-form', [FormController::class, 'store'])->name('submit-form');
 Route::post('/subscribe', [SubscriptionController::class, 'store'])->name('subscribe.store');
+
+
+
+Route::get('/logbook/upload', [LogbookController::class, 'showUploadForm'])->name('logbook.upload');
+Route::post('/logbook/upload', [LogbookController::class, 'upload'])->name('logbook.upload.post');
+Route::get('/logbook/download/{fileName}', [LogbookController::class, 'download'])->name('logbook.download');
+
+
+Route::get('/logbook/download/{fileName}', [LogbookController::class, 'download'])
+    ->name('logbook.download');
