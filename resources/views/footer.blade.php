@@ -13,6 +13,9 @@
                     <a href="tel:0710542747"><i class="fa-solid fa-phone"></i> &nbsp; 0710542747</a>
                 </li>
                 <li>
+                    <a href="tel:   0726043625"><i class="fa-solid fa-phone"></i> &nbsp; 0726043625</a>
+                </li>
+                <li>
                     <a href="mailto:laurencemariita@gmail.com"><i class="fa-solid fa-envelope"></i>&nbsp;
                         laurencemariita@gmail.com</a>
                 </li>
